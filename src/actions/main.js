@@ -3,6 +3,8 @@ export const DECREMENT = 'DECREMENT'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const NEWPLACE = 'NEWPLACE'
+export const REMOVEELEMENT = 'REMOVEELEMENT'
+export const ADDINFO = 'ADDINFO'
 
 export function increment () {
   return dispatch => {
@@ -21,7 +23,6 @@ export function decrement () {
 }
 
 export function login (userToken) {
-  console.log(userToken)
   return dispatch => {
     dispatch({
       type: LOGIN,
@@ -42,6 +43,24 @@ export function newplace (places) {
   return dispatch => {
     dispatch({
       type: NEWPLACE,
+      data: places
+    })
+  }
+}
+
+export function removeElement (place, index) {
+  return dispatch => {
+    dispatch({
+      type: REMOVEELEMENT,
+      data: {place, index}
+    })
+  }
+}
+
+export function addInfo (places) {
+  return dispatch => {
+    dispatch({
+      type: ADDINFO,
       data: places
     })
   }

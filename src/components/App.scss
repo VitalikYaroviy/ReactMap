@@ -23,14 +23,16 @@
   border-radius: 5px;
   color: white;
   height: 40px;
-  text-align: center;
-  width: 250px;
+  //text-align: center;
+  width: 150px;
+  margin: 0px auto 10px;
+  cursor: pointer;
 }
 
 .description {
   width: 50%;
   float: right;
-  position: C;
+  position: relative;
 }
 
 @keyframes App-logo-spin {
