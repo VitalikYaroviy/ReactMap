@@ -23,7 +23,6 @@
   border-radius: 5px;
   color: white;
   height: 40px;
-  //text-align: center;
   width: 150px;
   margin: 0px auto 10px;
   cursor: pointer;
@@ -33,6 +32,10 @@
   width: 50%;
   float: right;
   position: relative;
+}
+
+.mainText {
+  font-size: 50px;
 }
 
 @keyframes App-logo-spin {

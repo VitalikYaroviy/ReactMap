@@ -5,6 +5,8 @@ export const LOGOUT = 'LOGOUT'
 export const NEWPLACE = 'NEWPLACE'
 export const REMOVEELEMENT = 'REMOVEELEMENT'
 export const ADDINFO = 'ADDINFO'
+export const CHANGEPOSITION = 'CHANGEPOSITION'
+export const CHANGESORT = 'CHANGESORT'
 
 export function increment () {
   return dispatch => {
@@ -39,7 +41,7 @@ export function logout () {
   }
 }
 
-export function newplace (places) {
+export function newPlace (places) {
   return dispatch => {
     dispatch({
       type: NEWPLACE,
@@ -62,6 +64,24 @@ export function addInfo (places) {
     dispatch({
       type: ADDINFO,
       data: places
+    })
+  }
+}
+
+export function changePosition (type, value, index) {
+  return dispatch => {
+    dispatch({
+      type: CHANGEPOSITION,
+      data: {type, value, index}
+    })
+  }
+}
+
+export function changeSort (oldIndex, newIndex, places) {
+  return dispatch => {
+    dispatch({
+      type: CHANGESORT,
+      data: {oldIndex, newIndex, places}
     })
   }
 }

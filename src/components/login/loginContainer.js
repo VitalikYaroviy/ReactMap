@@ -22,4 +22,5 @@ const LoginContainer = connect(
   mapDispatchToProps
 )(Login)
 
+// eslint-disable-next-line eol-last
 export default LoginContainer

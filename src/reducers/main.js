@@ -1,6 +1,6 @@
 import update from 'immutability-helper'
 import { CHANGE_STATE_PROP } from '../actions'
-import { DECREMENT, INCREMENT, LOGIN, LOGOUT, NEWPLACE, REMOVEELEMENT, ADDINFO } from '../actions/main'
+import { DECREMENT, INCREMENT, LOGIN, LOGOUT, NEWPLACE, REMOVEELEMENT, ADDINFO, CHANGEPOSITION, CHANGESORT } from '../actions/main'
 
 const REDUCER = 'MAIN'
 const defaultState = {
@@ -33,7 +33,7 @@ export default (state = defaultState, action) => {
     case LOGOUT:
       return {
         ...state,
-        userToken: '',
+        userToken: null,
         places: []
       }
     case NEWPLACE:
@@ -52,6 +52,16 @@ export default (state = defaultState, action) => {
         ...state,
         places: action.data
       }
+    case CHANGEPOSITION:
+      let {type, value, index} = action.data
+      return update(state, {places: {[index]: {[type]: {$set: value}}}})
+    case CHANGESORT:
+      const {oldIndex, newIndex, places} = action.data
+      const clone = places.slice(0)
+      const num = clone[oldIndex]
+      clone.splice([oldIndex], 1)
+      clone.splice([newIndex], 0, num)
+      return update(state, {places: {$set: clone}})
     default:
       return state
   }

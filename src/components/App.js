@@ -4,38 +4,14 @@ import PropTypes from 'prop-types'
 import './App.css'
 import logo from '../../assets/images/logo.svg'
 // components
-import ComponentAContainer from '../components/ComponentsA/ComponentAContainer'
-import ComponentBContainer from '../components/ComponentsB/ComponentBContainer'
-import GoogleContainert from '../components/googlemap/googlemapContainer'
+import GoogleContainer from '../components/googlemap/googlemapContainer'
 import LoginContainer from './login/loginContainer'
-// import LogOutContainer from './logout/logoutContainer'
 // router
-import {Route, Switch} from 'react-router'
-import {HashRouter, Link} from 'react-router-dom'
-
-const NotFound = () => {
-  return (
-    <Route render={({staticContext}) => {
-      if (staticContext) {
-        staticContext.status = 404
-      }
-      return (<div>
-        <h1>Sorry, can’t find that.</h1>
-      </div>)
-    }}/>
-  )
-}
-
-function testAPI () {
-  console.log('Welcome!  Fetching your information.... ')
-  FB.api('/me', function (response) {
-    console.log('Successful login for: ' + response.name)
-    return true
-  })
-}
+// import {Route, Switch} from 'react-router'
+import {HashRouter} from 'react-router-dom'
 
 class App extends Component {
-  componentDidMount() {
+  componentDidMount () {
     (function (d, s, id) {
       const element = d.getElementsByTagName(s)[0]
       const fjs = element
@@ -53,48 +29,20 @@ class App extends Component {
         appId: '1901596210152837',
         xfbml: true,
         cookie: true,
-        version: 'v2.5'
+        version: 'v1.0'
       })
     }
   }
 
-  render() {
+  render () {
     return (
       <HashRouter>
         <div className='App'>
           <div className='App-header'>
-            {this.props.userToken ? <p>Welcome</p> : <img src={logo} className='App-logo' alt='logo'/>}
-            <LoginContainer/>
+            {this.props.userToken ? <p className={'mainText'}>Welcome</p> : <img src={logo} className='App-logo' alt='logo' />}
+            <LoginContainer />
           </div>
-          {this.props.userToken ? <GoogleContainert/> : <div>Come in!</div>}
-          <div>
-            {/*<Switch>*/}
-            {/*<Route exact path='/' render={() => {*/}
-            {/*return (*/}
-            {/*<div>*/}
-            {/*<h2>Welcome to App</h2>*/}
-            {/*<p className='App-intro'>*/}
-            {/*<code>src/components/App.js</code>*/}
-            {/*</p>*/}
-            {/*<p>*/}
-            {/*Value: {this.props.value}*/}
-            {/*</p>*/}
-            {/*<p>*/}
-            {/*<button*/}
-            {/*onClick={() => this.props.changeStateProp('value', 0, 'main')}>*/}
-            {/*Reset to "0"*/}
-            {/*</button>*/}
-            {/*</p>*/}
-            {/*</div>*/}
-            {/*)*/}
-            {/*}} />*/}
-            {/*<Route path='/componentA'*/}
-            {/*component={ComponentAContainer} />*/}
-            {/*<Route path='/componentB'*/}
-            {/*component={ComponentBContainer} />*/}
-            {/*<Route component={NotFound} />*/}
-            {/*</Switch>*/}
-          </div>
+          {this.props.userToken ? <GoogleContainer /> : <div className={'mainText'}>Come in!</div>}
         </div>
       </HashRouter>
     )
