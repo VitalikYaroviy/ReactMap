@@ -7,7 +7,6 @@ import logo from '../../assets/images/logo.svg'
 import GoogleContainer from '../components/googlemap/googlemapContainer'
 import LoginContainer from './login/loginContainer'
 // router
-// import {Route, Switch} from 'react-router'
 import {HashRouter} from 'react-router-dom'
 
 class App extends Component {
@@ -59,8 +58,6 @@ App.propTypes = {
 App.defaultProps = {
   value: 0,
   userToken: '',
-  changeStateProp: () => {
-  },
   myCustomPropsFunc: () => {
   }
 }

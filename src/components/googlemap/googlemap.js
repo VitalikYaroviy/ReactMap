@@ -3,9 +3,6 @@
 
 import React, {Component} from 'react'
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react'
-
-// let ReactDragList = require('react-drag-list')
-// import PropTypes from 'prop-types'
 import './googlemap.css'
 
 class GoogleMap extends Component {

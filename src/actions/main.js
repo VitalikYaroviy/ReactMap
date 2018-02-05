@@ -1,28 +1,4 @@
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const LOGIN = 'LOGIN'
-export const LOGOUT = 'LOGOUT'
-export const NEWPLACE = 'NEWPLACE'
-export const REMOVEELEMENT = 'REMOVEELEMENT'
-export const ADDINFO = 'ADDINFO'
-export const CHANGEPOSITION = 'CHANGEPOSITION'
-export const CHANGESORT = 'CHANGESORT'
-
-export function increment () {
-  return dispatch => {
-    dispatch({
-      type: INCREMENT
-    })
-  }
-}
-
-export function decrement () {
-  return dispatch => {
-    dispatch({
-      type: DECREMENT
-    })
-  }
-}
+import {LOGIN, LOGOUT, NEWPLACE, REMOVEELEMENT, ADDINFO, CHANGEPOSITION, CHANGESORT} from "../constants/index"
 
 export function login (userToken) {
   return dispatch => {
