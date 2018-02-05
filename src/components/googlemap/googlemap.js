@@ -14,7 +14,7 @@ class GoogleMap extends Component {
       latLng: {lat: clickEvent.latLng.lat(), lng: clickEvent.latLng.lng()}
     })
     this.setState({places: list})
-    this.props.newPlace(list)
+    this.props.changeStateProp('places', list, 'main')
   }
 
   searchMarker = (mapProps) => {
@@ -39,7 +39,7 @@ class GoogleMap extends Component {
     let list = this.props.places
     this.props.places[e.target.form.id][e.target.name] = e.target.value
     this.setState({places: list})
-    this.props.addInfo(list)
+    this.props.changeStateProp('places', list, 'main')
   }
   removeMarker = (e) => {
     this.props.removeElement(this.props.places, e.target.form.id)

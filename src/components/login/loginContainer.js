@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {changeStateProp} from '../../actions'
-import {login, logout} from '../../actions/main'
 import Login from './login'
 
 const mapStateToProps = ({main: {userToken}}, ownProps) => {
@@ -13,7 +12,7 @@ const mapStateToProps = ({main: {userToken}}, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ...bindActionCreators({changeStateProp, login, logout}, dispatch)
+    ...bindActionCreators({changeStateProp}, dispatch)
   }
 }
 

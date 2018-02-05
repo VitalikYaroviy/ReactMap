@@ -49,14 +49,12 @@ class App extends Component {
 }
 
 App.propTypes = {
-  value: PropTypes.number.isRequired,
   userToken: PropTypes.string.isRequired,
   changeStateProp: PropTypes.func.isRequired,
   myCustomPropsFunc: PropTypes.func
 }
 
 App.defaultProps = {
-  value: 0,
   userToken: '',
   myCustomPropsFunc: () => {
   }

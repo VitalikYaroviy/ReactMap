@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {changeStateProp} from '../../actions'
-import {newPlace, removeElement, addInfo, changePosition, changeSort} from '../../actions/main'
+import {removeElement, changePosition, changeSort} from '../../actions/main'
 import GoogleMap from './googlemap'
 
 const mapStateToProps = ({main: {userToken, places}}, ownProps) => {
@@ -14,7 +14,7 @@ const mapStateToProps = ({main: {userToken, places}}, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    ...bindActionCreators({changeStateProp, newPlace, removeElement, addInfo, changePosition, changeSort}, dispatch)
+    ...bindActionCreators({changeStateProp, removeElement, changePosition, changeSort}, dispatch)
   }
 }
 

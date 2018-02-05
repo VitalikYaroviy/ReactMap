@@ -1,6 +1,7 @@
 /* global FB */
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+// import {changeStateProp} from "../../actions";
 
 class Login extends Component {
 
@@ -8,7 +9,7 @@ class Login extends Component {
     let self = this
     FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {
-        self.props.login(response.authResponse.accessToken)
+        self.props.changeStateProp('userToken', response.authResponse.accessToken, 'main')
       }
     })
   }
@@ -18,7 +19,8 @@ class Login extends Component {
   }
 
   logOut = () => {
-    this.props.logout()
+    this.props.changeStateProp('userToken', null, 'main')
+    this.props.changeStateProp('places', [], 'main')
   }
 
   render () {
@@ -37,8 +39,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  login: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired
+  changeStateProp: PropTypes.func.isRequired
 }
 
 Login.defaultProps = {

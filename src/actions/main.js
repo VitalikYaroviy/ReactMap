@@ -1,45 +1,10 @@
-import {LOGIN, LOGOUT, NEWPLACE, REMOVEELEMENT, ADDINFO, CHANGEPOSITION, CHANGESORT} from "../constants/index"
-
-export function login (userToken) {
-  return dispatch => {
-    dispatch({
-      type: LOGIN,
-      data: userToken
-    })
-  }
-}
-
-export function logout () {
-  return dispatch => {
-    dispatch({
-      type: LOGOUT
-    })
-  }
-}
-
-export function newPlace (places) {
-  return dispatch => {
-    dispatch({
-      type: NEWPLACE,
-      data: places
-    })
-  }
-}
+import {REMOVEELEMENT, CHANGEPOSITION, CHANGESORT} from "../constants/index"
 
 export function removeElement (place, index) {
   return dispatch => {
     dispatch({
       type: REMOVEELEMENT,
       data: {place, index}
-    })
-  }
-}
-
-export function addInfo (places) {
-  return dispatch => {
-    dispatch({
-      type: ADDINFO,
-      data: places
     })
   }
 }
